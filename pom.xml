@@ -7,6 +7,7 @@
     <groupId>work.trons.library</groupId>
     <artifactId>weixin-pay-v3</artifactId>
     <version>1.0.0</version>
+    <url>https://github.com/TRonsbibubibu/weixin-pay-v3</url>
 
     <name>weixin-pay-v3</name>
     <description>
@@ -88,16 +89,15 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.10.4</version>
                 <configuration>
-                    <charset>utf-8</charset>
-                    <encoding>utf-8</encoding>
-                    <docencoding>utf-8</docencoding>
-                    <locale>zh_CN</locale>
+                    <charset>UTF-8</charset>
+                    <encoding>UTF-8</encoding>
+                    <docencoding>UTF-8</docencoding>
                     <show>public</show>
-                    <excludePackageNames>weixin.popular.bean.*</excludePackageNames>
+                    <failOnError>false</failOnError>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>attach-javadocs</id>
+                        <id>attach-javadoc</id>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -123,7 +123,7 @@
                 <version>1.6.4</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>oss</serverId>
+                    <serverId>sonatype-oss</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
