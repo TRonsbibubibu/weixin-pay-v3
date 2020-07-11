@@ -21,6 +21,22 @@ public class EcommerceApi extends BaseApi {
     public SubmitApplymentResponse submitApplyment(SubmitApplymentRequest request) {
         String method = "POST";
         String url = "/v3/ecommerce/applyments/";
+        if (request.getIdCardInfo() != null) {
+            SubmitApplymentRequest.IdCardInfo idCardInfo = request.getIdCardInfo();
+            idCardInfo.setIdCardName(RSAUtils.encrypt(idCardInfo.getIdCardName(), setting.getPlatformPublicKey()));
+            idCardInfo.setIdCardNumber(RSAUtils.encrypt(idCardInfo.getIdCardNumber(), setting.getPlatformPublicKey()));
+        }
+        if (request.getAccountInfo() != null) {
+            SubmitApplymentRequest.AccountInfo accountInfo = request.getAccountInfo();
+            accountInfo.setAccountName(RSAUtils.encrypt(accountInfo.getAccountName(), setting.getPlatformPublicKey()));
+            accountInfo.setAccountNumber(RSAUtils.encrypt(accountInfo.getAccountNumber(), setting.getPlatformPublicKey()));
+        }
+
+        SubmitApplymentRequest.ContactInfo contactInfo = request.getContactInfo();
+        contactInfo.setContactName(RSAUtils.encrypt(contactInfo.getContactName(), setting.getPlatformPublicKey()));
+        contactInfo.setContactIdCardNumber(RSAUtils.encrypt(contactInfo.getContactIdCardNumber(), setting.getPlatformPublicKey()));
+        contactInfo.setMobilePhone(RSAUtils.encrypt(contactInfo.getMobilePhone(), setting.getPlatformPublicKey()));
+        contactInfo.setContactEmail(RSAUtils.encrypt(contactInfo.getContactEmail(), setting.getPlatformPublicKey()));
         return jsonRequest(method, url, request, SubmitApplymentResponse.class);
     }
 

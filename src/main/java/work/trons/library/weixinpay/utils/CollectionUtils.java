@@ -22,4 +22,12 @@ public class CollectionUtils {
     public static boolean isEmpty(Collection<?> coll) {
         return coll == null || coll.isEmpty();
     }
+
+    public static <T> List<T> immutableList(T... elements) {
+        if (elements.length <= 0) {
+            return Collections.emptyList();
+        }
+        List<T> ts = Arrays.asList(elements);
+        return Collections.unmodifiableList(ts);
+    }
 }

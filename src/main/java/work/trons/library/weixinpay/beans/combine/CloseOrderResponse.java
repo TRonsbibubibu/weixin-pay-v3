@@ -75,9 +75,9 @@ public class CloseOrderResponse extends BaseResponse {
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Amount {
             @JsonProperty("total_amount")
-            private int totalAmount;
+            private Integer totalAmount;
             @JsonProperty("payer_amount")
-            private int payerAmount;
+            private Integer payerAmount;
             @JsonProperty("currency")
             private String currency;
             @JsonProperty("payer_currency")

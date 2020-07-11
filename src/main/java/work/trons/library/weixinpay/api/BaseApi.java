@@ -79,8 +79,9 @@ public abstract class BaseApi {
 
     @SneakyThrows
     protected <T extends BaseResponse> T fileRequest(String url, String filename, byte[] fileData, Class<T> clazz) {
+        String finalFilename = formatFilename(filename);
         String metaStr = JsonUtils.toJson(MapUtils.immutable(
-                "filename", filename,
+                "filename", finalFilename,
                 "sha256", EncryptUtils.sha256(fileData)
         ));
         Long requestTime = System.currentTimeMillis() / 1000;
@@ -93,7 +94,7 @@ public abstract class BaseApi {
                 + "signature=\"" + sign + "\"";
 
         MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create()
-                .addBinaryBody("file", fileData, parseContentTypeFromFilename(filename), filename)
+                .addBinaryBody("file", fileData, parseContentTypeFromFilename(finalFilename), finalFilename)
                 .addTextBody("meta", metaStr, ContentType.APPLICATION_JSON);
         RequestBuilder requestBuilder = RequestBuilder
                 .post(MCH_URI + url)
@@ -104,6 +105,15 @@ public abstract class BaseApi {
         CloseableHttpResponse response = httpClient.execute(requestBuilder.build());
         String data = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
         return JsonUtils.toObject(data, clazz);
+    }
+
+    private String formatFilename(String filename) {
+        String lowerCase = filename.toLowerCase();
+        if (lowerCase.endsWith(".jpeg")) {
+            String[] split = filename.split("\\.");
+            return String.format("%s.%s", split[0], ".jpg");
+        }
+        return filename;
     }
 
     private ContentType parseContentTypeFromFilename(String filename) {

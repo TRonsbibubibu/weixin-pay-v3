@@ -31,7 +31,7 @@ public class ApplymentResponse extends BaseResponse {
     @JsonProperty("out_request_no")
     private String outRequestNo;
     @JsonProperty("applyment_id")
-    private long applymentId;
+    private Long applymentId;
     @JsonProperty("audit_detail")
     private List<AuditDetail> auditDetail;
 
@@ -43,7 +43,7 @@ public class ApplymentResponse extends BaseResponse {
         @JsonProperty("account_no")
         private String accountNo;
         @JsonProperty("pay_amount")
-        private int payAmount;
+        private String payAmount;
         @JsonProperty("destination_account_number")
         private String destinationAccountNumber;
         @JsonProperty("destination_account_name")

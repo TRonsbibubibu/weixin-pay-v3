@@ -2,10 +2,11 @@ package work.trons.library.weixinpay.core;
 
 import lombok.Getter;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import work.trons.library.weixinpay.api.CommonApi;
 import work.trons.library.weixinpay.beans.common.PlatformCertResponse;
-import work.trons.library.weixinpay.utils.EncryptUtils;
 import work.trons.library.weixinpay.utils.CollectionUtils;
+import work.trons.library.weixinpay.utils.EncryptUtils;
 import work.trons.library.weixinpay.utils.RSAUtils;
 import work.trons.library.weixinpay.utils.StringUtils;
 
@@ -22,6 +23,7 @@ import java.util.List;
  * @author liujiawei
  * @date 2020/6/20
  */
+@Slf4j
 @Getter
 public class PaySetting {
     private String signatureAlgorithm;
@@ -63,6 +65,7 @@ public class PaySetting {
         Certificate cert = RSAUtils.loadCertificate(certStr);
         this.platformSerialNo = platformCert.getSerialNo();
         this.platformPublicKey = cert.getPublicKey();
+        log.info("微信支付证书加载成功 序列号[{}]", this.platformPublicKey);
     }
 
     public static class Builder {

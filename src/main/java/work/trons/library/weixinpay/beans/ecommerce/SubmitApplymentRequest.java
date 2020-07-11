@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.List;
-
 /**
  * @author liujiawei
  * @date 2020/6/20
@@ -35,12 +33,12 @@ public class SubmitApplymentRequest {
     private ContactInfo contactInfo;
     @JsonProperty("sales_scene_info")
     private SalesSceneInfo salesSceneInfo;
-    @JsonProperty("sales_scene_info")
+    @JsonProperty("merchant_shortname")
     private String merchantShortname;
     @JsonProperty("qualifications")
-    private List<String> qualifications;
+    private String qualifications;
     @JsonProperty("business_addition_pics")
-    private List<String> businessAdditionPics;
+    private String businessAdditionPics;
     @JsonProperty("business_addition_desc")
     private String businessAdditionDesc;
 
