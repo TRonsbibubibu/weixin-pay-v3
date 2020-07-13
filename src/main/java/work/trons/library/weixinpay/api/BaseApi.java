@@ -1,6 +1,7 @@
 package work.trons.library.weixinpay.api;
 
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.entity.ContentType;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
  * @author liujiawei
  * @date 2020/6/20
  */
+@Slf4j
 public abstract class BaseApi {
 
     private static final CloseableHttpClient httpClient = HttpClientFactory.build();
@@ -73,8 +75,14 @@ public abstract class BaseApi {
                     .setEntity(new StringEntity(bodyStr, ContentType.APPLICATION_JSON));
         }
         CloseableHttpResponse response = httpClient.execute(requestBuilder.build());
-        String data = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-        return JsonUtils.toObject(data, clazz);
+        if (response.getEntity() != null) {
+            String data = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+            log.debug("{} {} {} {}", method, url, bodyStr, data);
+            return JsonUtils.toObject(data, clazz);
+        } else {
+            log.debug("{} {} {}", method, url, bodyStr);
+            return clazz.newInstance();
+        }
     }
 
     @SneakyThrows
@@ -103,8 +111,17 @@ public abstract class BaseApi {
                 .addHeader("Accept", "application/json")
                 .setEntity(entityBuilder.build());
         CloseableHttpResponse response = httpClient.execute(requestBuilder.build());
-        String data = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-        return JsonUtils.toObject(data, clazz);
+        log.debug("fileRequest {}", filename);
+        if (response.getEntity() != null) {
+            String data = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+            return JsonUtils.toObject(data, clazz);
+        } else {
+            return clazz.newInstance();
+        }
+    }
+
+    private <T> T buildResponse(CloseableHttpResponse response, Class<T> clazz) {
+        return null;
     }
 
     private String formatFilename(String filename) {

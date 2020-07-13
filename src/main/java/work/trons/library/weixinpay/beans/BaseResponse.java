@@ -1,5 +1,6 @@
 package work.trons.library.weixinpay.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 /**
@@ -11,6 +12,7 @@ public class BaseResponse {
     private String code;
     private String message;
 
+    @JsonIgnore
     public boolean isSuccess() {
         return code == null;
     }

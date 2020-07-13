@@ -1,8 +1,8 @@
 package work.trons.library.weixinpay.api;
 
+import work.trons.library.weixinpay.beans.PayResponse;
 import work.trons.library.weixinpay.beans.combine.CloseOrderRequest;
 import work.trons.library.weixinpay.beans.combine.CombinePayRequest;
-import work.trons.library.weixinpay.beans.combine.CombinePayResponse;
 import work.trons.library.weixinpay.beans.combine.QueryOrderResponse;
 import work.trons.library.weixinpay.core.PaySetting;
 
@@ -20,33 +20,33 @@ public class CombineApi extends BaseApi {
         return new CombineApi(setting);
     }
 
-    public CombinePayResponse app(CombinePayRequest request) {
+    public PayResponse app(CombinePayRequest request) {
         String method = "POST";
         String url = "/v3/combine-transactions/app";
-        return jsonRequest(method, url, request, CombinePayResponse.class);
+        return jsonRequest(method, url, request, PayResponse.class);
     }
 
-    public CombinePayResponse jsapi(CombinePayRequest request) {
+    public PayResponse jsapi(CombinePayRequest request) {
         String method = "POST";
         String url = "/v3/combine-transactions/jsapi";
-        return jsonRequest(method, url, request, CombinePayResponse.class);
+        return jsonRequest(method, url, request, PayResponse.class);
     }
 
-    public CombinePayResponse h5(CombinePayRequest request) {
+    public PayResponse h5(CombinePayRequest request) {
         String method = "POST";
         String url = "/v3/combine-transactions/h5";
         request.setCombinePayerInfo(null);
         if (request.getSceneInfo() == null || request.getSceneInfo().getH5Info() == null) {
             throw new IllegalArgumentException("场景信息或者H5场景信息不能为空");
         }
-        return jsonRequest(method, url, request, CombinePayResponse.class);
+        return jsonRequest(method, url, request, PayResponse.class);
     }
 
-    public CombinePayResponse natives(CombinePayRequest request) {
+    public PayResponse native_(CombinePayRequest request) {
         String method = "POST";
         String url = "/v3/combine-transactions/native";
         request.setCombinePayerInfo(null);
-        return jsonRequest(method, url, request, CombinePayResponse.class);
+        return jsonRequest(method, url, request, PayResponse.class);
     }
 
     public QueryOrderResponse queryOrder(String combineOutTradeNo) {

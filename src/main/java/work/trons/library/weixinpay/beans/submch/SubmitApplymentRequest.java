@@ -2,10 +2,8 @@ package work.trons.library.weixinpay.beans.submch;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -13,8 +11,6 @@ import java.util.List;
  * @author liujiawei
  * @date 2020/7/10
  */
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -34,8 +30,6 @@ public class SubmitApplymentRequest {
     @JsonProperty("addition_info")
     private AdditionInfo additionInfo;
 
-    @AllArgsConstructor
-    @NoArgsConstructor
     @Data
     @Builder
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -52,8 +46,6 @@ public class SubmitApplymentRequest {
         private String contactEmail;
     }
 
-    @AllArgsConstructor
-    @NoArgsConstructor
     @Data
     @Builder
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -73,8 +65,6 @@ public class SubmitApplymentRequest {
         @JsonProperty("ubo_info")
         private UboInfo uboInfo;
 
-        @AllArgsConstructor
-        @NoArgsConstructor
         @Data
         @Builder
         @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -89,8 +79,6 @@ public class SubmitApplymentRequest {
             private String legalPerson;
         }
 
-        @AllArgsConstructor
-        @NoArgsConstructor
         @Data
         @Builder
         @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -113,8 +101,6 @@ public class SubmitApplymentRequest {
             private String periodEnd;
         }
 
-        @AllArgsConstructor
-        @NoArgsConstructor
         @Data
         @Builder
         @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -130,8 +116,6 @@ public class SubmitApplymentRequest {
 
         }
 
-        @AllArgsConstructor
-        @NoArgsConstructor
         @Data
         @Builder
         @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -145,8 +129,6 @@ public class SubmitApplymentRequest {
             @JsonProperty("owner")
             private Boolean owner;
 
-            @AllArgsConstructor
-            @NoArgsConstructor
             @Data
             @Builder
             @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -166,8 +148,6 @@ public class SubmitApplymentRequest {
 
             }
 
-            @AllArgsConstructor
-            @NoArgsConstructor
             @Data
             @Builder
             @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -185,8 +165,6 @@ public class SubmitApplymentRequest {
             }
         }
 
-        @AllArgsConstructor
-        @NoArgsConstructor
         @Data
         @Builder
         @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -210,8 +188,6 @@ public class SubmitApplymentRequest {
         }
     }
 
-    @AllArgsConstructor
-    @NoArgsConstructor
     @Data
     @Builder
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -223,8 +199,6 @@ public class SubmitApplymentRequest {
         @JsonProperty("sales_info")
         private SalesInfo salesInfo;
 
-        @AllArgsConstructor
-        @NoArgsConstructor
         @Data
         @Builder
         @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -244,8 +218,6 @@ public class SubmitApplymentRequest {
             @JsonProperty("sales_scenes_type")
             private List<String> salesScenesType;
 
-            @AllArgsConstructor
-            @NoArgsConstructor
             @Data
             @Builder
             @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -264,8 +236,6 @@ public class SubmitApplymentRequest {
                 private List<String> indoorPic;
             }
 
-            @AllArgsConstructor
-            @NoArgsConstructor
             @Data
             @Builder
             @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -279,8 +249,6 @@ public class SubmitApplymentRequest {
 
             }
 
-            @AllArgsConstructor
-            @NoArgsConstructor
             @Data
             @Builder
             @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -294,8 +262,6 @@ public class SubmitApplymentRequest {
 
             }
 
-            @AllArgsConstructor
-            @NoArgsConstructor
             @Data
             @Builder
             @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -309,8 +275,6 @@ public class SubmitApplymentRequest {
 
             }
 
-            @AllArgsConstructor
-            @NoArgsConstructor
             @Data
             @Builder
             @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -324,8 +288,6 @@ public class SubmitApplymentRequest {
 
             }
 
-            @AllArgsConstructor
-            @NoArgsConstructor
             @Data
             @Builder
             @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -340,8 +302,6 @@ public class SubmitApplymentRequest {
         }
     }
 
-    @AllArgsConstructor
-    @NoArgsConstructor
     @Data
     @Builder
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -360,8 +320,6 @@ public class SubmitApplymentRequest {
         private List<String> activitiesAdditions;
     }
 
-    @AllArgsConstructor
-    @NoArgsConstructor
     @Data
     @Builder
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -382,8 +340,6 @@ public class SubmitApplymentRequest {
         private String accountNumber;
     }
 
-    @AllArgsConstructor
-    @NoArgsConstructor
     @Data
     @Builder
     @JsonInclude(JsonInclude.Include.NON_NULL)

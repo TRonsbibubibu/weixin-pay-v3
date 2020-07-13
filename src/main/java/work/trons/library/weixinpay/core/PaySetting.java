@@ -65,7 +65,7 @@ public class PaySetting {
         Certificate cert = RSAUtils.loadCertificate(certStr);
         this.platformSerialNo = platformCert.getSerialNo();
         this.platformPublicKey = cert.getPublicKey();
-        log.info("微信支付证书加载成功 序列号[{}]", this.platformPublicKey);
+        log.info("微信支付证书加载成功 序列号[{}]", this.platformSerialNo);
     }
 
     public static class Builder {

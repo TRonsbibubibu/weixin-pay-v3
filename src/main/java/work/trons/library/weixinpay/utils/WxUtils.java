@@ -1,6 +1,7 @@
 package work.trons.library.weixinpay.utils;
 
 import lombok.SneakyThrows;
+import work.trons.library.weixinpay.beans.CallbackMessage;
 import work.trons.library.weixinpay.core.PaySetting;
 
 /**
@@ -16,5 +17,18 @@ public class WxUtils {
                 .append(body).append('\n');
 
         return RSAUtils.verify(sign, paySetting.getMchPublicKey(), builder.toString(), paySetting.getSignatureAlgorithm());
+    }
+
+    public static CallbackMessage callback(PaySetting paySetting, String body) {
+        CallbackMessage message = JsonUtils.toObject(body, CallbackMessage.class);
+        CallbackMessage.Resource resource = message.getResource();
+        String decrypttext = EncryptUtils.aesDecryptToString(
+                paySetting.getAesKey(),
+                resource.getAssociatedData().getBytes(),
+                resource.getNonce().getBytes(),
+                resource.getCiphertext()
+        );
+        resource.setDecrypttext(decrypttext);
+        return message;
     }
 }
