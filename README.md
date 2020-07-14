@@ -29,15 +29,19 @@ weixin-pay-v3
 ## 实现接口
 
 * 商户进件
-  * [SubMchApi]() 特约商户进件 ✅ 
+  * SubMchApi 特约商户进件 ✅ 
 * 基础支付 
-  * [PayApi]() 普通支付（直连模式) ✅
-  * [PartnerPayApi]() 普通支付（服务商模式) ✅
-  * [CombineApi]() 合单支付 ✅
+  * PayApi 普通支付（直连模式) ✅
+  * PartnerPayApi 普通支付（服务商模式) ✅
+  * CombineApi 合单支付 ✅
+  * BillApi 账单 ✅
 * Ecommerce 电商收付通
-  * [ApplymentApi]() 商户进件 ✅ 
-  * [RefundApi]() 退款 ✅ 
-* [CommonApi]() 通用接口
+  * EcoApplymentApi 商户进件 ✅ 
+  * EcoRefundApi 退款 ✅ 
+  * EcoBalanceApi 余额查询 ✅ 
+  * EcoProfitSharingApi 分账 ✅ 
+  * EcoWithdrawApi 提现 ✅
+* CommonApi 通用接口
   * 商户开户意愿确认 ✅
   * 图片上传 ✅
   * 视频上传 ✅

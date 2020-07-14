@@ -78,7 +78,7 @@ public class SubMchApi extends BaseApi {
      *
      * @return GetApplymentResponse
      */
-    public GetApplymentResponse getApplyment(String businessCode) {
+    public GetApplymentResponse getApplymentByBusinessCode(String businessCode) {
         String method = "GET";
         String url = String.format("/v3/applyment4sub/applyment/business_code/%s", businessCode);
         return jsonRequest(method, url, null, GetApplymentResponse.class);
@@ -89,7 +89,7 @@ public class SubMchApi extends BaseApi {
      *
      * @return GetApplymentResponse
      */
-    public GetApplymentResponse getApplyment(Long applymentId) {
+    public GetApplymentResponse getApplymentByApplymentId(String applymentId) {
         String method = "GET";
         String url = String.format("/v3/applyment4sub/applyment/applyment_id/%s", applymentId);
         return jsonRequest(method, url, null, GetApplymentResponse.class);

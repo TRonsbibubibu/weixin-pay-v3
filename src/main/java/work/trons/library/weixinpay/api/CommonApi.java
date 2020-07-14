@@ -48,7 +48,7 @@ public class CommonApi extends BaseApi {
      * @param applymentId
      * @return
      */
-    public SubjectApplymentResponse subjectApplyment(Long applymentId) {
+    public SubjectApplymentResponse subjectApplymentByApplymentId(String applymentId) {
         throw new UnsupportedOperationException();
     }
 
@@ -58,7 +58,7 @@ public class CommonApi extends BaseApi {
      * @param businessCode
      * @return
      */
-    public SubjectApplymentResponse subjectApplyment(String businessCode) {
+    public SubjectApplymentResponse subjectApplymentByBusinessCode(String businessCode) {
         throw new UnsupportedOperationException();
     }
 
@@ -78,7 +78,7 @@ public class CommonApi extends BaseApi {
      * @param applymentId
      * @return
      */
-    public CancelSubjectApplyment cancelSubjectApplyment(Long applymentId) {
+    public CancelSubjectApplyment cancelSubjectApplymentByApplymentId(String applymentId) {
         throw new UnsupportedOperationException();
     }
 
@@ -88,7 +88,7 @@ public class CommonApi extends BaseApi {
      * @param businessCode
      * @return
      */
-    public CancelSubjectApplyment cancelSubjectApplyment(String businessCode) {
+    public CancelSubjectApplyment cancelSubjectApplymentByBusinessCode(String businessCode) {
         throw new UnsupportedOperationException();
     }
 }

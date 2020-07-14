@@ -1,5 +1,8 @@
 package work.trons.library.weixinpay.utils;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+
 /**
  * @author liujiawei
  * @date 2020/7/9
@@ -22,5 +25,13 @@ public class StringUtils {
 
     public static int length(final CharSequence cs) {
         return cs == null ? 0 : cs.length();
+    }
+
+    public static String toQuery(Map<String, String> querys) {
+        return querys
+                .entrySet()
+                .stream()
+                .map(e -> e.getKey() + "=" + e.getValue())
+                .collect(Collectors.joining("&"));
     }
 }

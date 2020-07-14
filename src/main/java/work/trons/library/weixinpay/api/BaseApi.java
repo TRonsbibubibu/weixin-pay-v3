@@ -14,6 +14,7 @@ import work.trons.library.weixinpay.core.PaySetting;
 import work.trons.library.weixinpay.core.http.HttpClientFactory;
 import work.trons.library.weixinpay.utils.*;
 
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -118,6 +119,30 @@ public abstract class BaseApi {
         } else {
             return clazz.newInstance();
         }
+    }
+
+    @SneakyThrows
+    protected InputStream fileDownload(String url) {
+        String method = "GET";
+        Long requestTime = System.currentTimeMillis() / 1000;
+        String randomStr = String.valueOf(Math.random());
+        String bodyStr = StringUtils.EMPTY;
+        String sign = sign(method, url, requestTime, randomStr, bodyStr);
+        String signInfo = "mchid=\"" + setting.getMchId() + "\","
+                + "nonce_str=\"" + randomStr + "\","
+                + "timestamp=\"" + requestTime + "\","
+                + "serial_no=\"" + setting.getMchSerialNo() + "\","
+                + "signature=\"" + sign + "\"";
+
+
+        RequestBuilder requestBuilder = RequestBuilder
+                .create(method)
+                .setUri(MCH_URI + url)
+                .addHeader("Wechatpay-Serial", setting.getPlatformSerialNo())
+                .addHeader("Authorization", String.format("%s %s", "WECHATPAY2-SHA256-RSA2048", signInfo))
+                .addHeader("Accept", "*/*");
+        CloseableHttpResponse response = httpClient.execute(requestBuilder.build());
+        return response.getEntity().getContent();
     }
 
     private <T> T buildResponse(CloseableHttpResponse response, Class<T> clazz) {
