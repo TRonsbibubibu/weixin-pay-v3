@@ -44,4 +44,23 @@ public class MapUtils {
                 immutableEntry(k3, v3)
         );
     }
+
+    public static <K, V> Map<K, V> immutable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4) {
+        return buildFromEntries(
+                immutableEntry(k1, v1),
+                immutableEntry(k2, v2),
+                immutableEntry(k3, v3),
+                immutableEntry(k4, v4)
+        );
+    }
+
+    public static <K, V> Map<K, V> immutable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+        return buildFromEntries(
+                immutableEntry(k1, v1),
+                immutableEntry(k2, v2),
+                immutableEntry(k3, v3),
+                immutableEntry(k4, v4),
+                immutableEntry(k5, v5)
+        );
+    }
 }

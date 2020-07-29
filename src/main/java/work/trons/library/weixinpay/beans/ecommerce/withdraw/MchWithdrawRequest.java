@@ -14,7 +14,7 @@ public class MchWithdrawRequest {
     @JsonProperty("out_request_no")
     private String outRequestNo;
     @JsonProperty("amount")
-    private int amount;
+    private Integer amount;
     @JsonProperty("remark")
     private String remark;
     @JsonProperty("bank_memo")

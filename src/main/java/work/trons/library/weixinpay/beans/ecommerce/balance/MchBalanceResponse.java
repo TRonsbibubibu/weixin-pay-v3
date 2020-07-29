@@ -13,7 +13,7 @@ import work.trons.library.weixinpay.beans.BaseResponse;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MchBalanceResponse extends BaseResponse {
     @JsonProperty("available_amount")
-    private int availableAmount;
+    private Integer availableAmount;
     @JsonProperty("pending_amount")
-    private int pendingAmount;
+    private Integer pendingAmount;
 }

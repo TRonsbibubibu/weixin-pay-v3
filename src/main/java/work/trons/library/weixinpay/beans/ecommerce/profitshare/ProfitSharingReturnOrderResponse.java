@@ -23,7 +23,7 @@ public class ProfitSharingReturnOrderResponse extends BaseResponse {
     @JsonProperty("return_mchid")
     private String returnMchid;
     @JsonProperty("amount")
-    private int amount;
+    private Integer amount;
     @JsonProperty("return_no")
     private String returnNo;
     @JsonProperty("result")

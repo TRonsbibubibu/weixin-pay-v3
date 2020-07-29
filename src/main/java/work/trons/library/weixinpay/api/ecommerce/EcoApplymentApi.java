@@ -4,7 +4,6 @@ import work.trons.library.weixinpay.api.BaseApi;
 import work.trons.library.weixinpay.beans.ecommerce.applyment.*;
 import work.trons.library.weixinpay.core.PaySetting;
 import work.trons.library.weixinpay.utils.RSAUtils;
-import work.trons.library.weixinpay.utils.StringUtils;
 
 /**
  * @author liujiawei
@@ -40,11 +39,13 @@ public class EcoApplymentApi extends BaseApi {
             accountInfo.setAccountNumber(RSAUtils.encrypt(accountInfo.getAccountNumber(), setting.getPlatformPublicKey()));
         }
 
-        SubmitEcoApplymentRequest.ContactInfo contactInfo = request.getContactInfo();
-        contactInfo.setContactName(RSAUtils.encrypt(contactInfo.getContactName(), setting.getPlatformPublicKey()));
-        contactInfo.setContactIdCardNumber(RSAUtils.encrypt(contactInfo.getContactIdCardNumber(), setting.getPlatformPublicKey()));
-        contactInfo.setMobilePhone(RSAUtils.encrypt(contactInfo.getMobilePhone(), setting.getPlatformPublicKey()));
-        contactInfo.setContactEmail(RSAUtils.encrypt(contactInfo.getContactEmail(), setting.getPlatformPublicKey()));
+        if (request.getContactInfo() != null) {
+            SubmitEcoApplymentRequest.ContactInfo contactInfo = request.getContactInfo();
+            contactInfo.setContactName(RSAUtils.encrypt(contactInfo.getContactName(), setting.getPlatformPublicKey()));
+            contactInfo.setContactIdCardNumber(RSAUtils.encrypt(contactInfo.getContactIdCardNumber(), setting.getPlatformPublicKey()));
+            contactInfo.setMobilePhone(RSAUtils.encrypt(contactInfo.getMobilePhone(), setting.getPlatformPublicKey()));
+            contactInfo.setContactEmail(RSAUtils.encrypt(contactInfo.getContactEmail(), setting.getPlatformPublicKey()));
+        }
         return jsonRequest(method, url, request, SubmitEcoApplymentResponse.class);
     }
 
@@ -72,12 +73,8 @@ public class EcoApplymentApi extends BaseApi {
         GetEcoApplymentResponse response = jsonRequest(method, url, null, GetEcoApplymentResponse.class);
         if (response.getAccountValidation() != null) {
             GetEcoApplymentResponse.AccountValidation validation = response.getAccountValidation();
-            if (!StringUtils.isBlank(validation.getAccountName())) {
-                validation.setAccountName(RSAUtils.decrypt(validation.getAccountName(), setting.getMchPrivateKey()));
-            }
-            if (!StringUtils.isBlank(validation.getAccountNo())) {
-                validation.setAccountNo(RSAUtils.decrypt(validation.getAccountNo(), setting.getMchPrivateKey()));
-            }
+            validation.setAccountName(RSAUtils.decrypt(validation.getAccountName(), setting.getMchPrivateKey()));
+            validation.setAccountNo(RSAUtils.decrypt(validation.getAccountNo(), setting.getMchPrivateKey()));
         }
         return response;
     }

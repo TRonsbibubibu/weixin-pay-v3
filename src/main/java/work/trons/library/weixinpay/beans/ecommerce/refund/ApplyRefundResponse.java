@@ -29,11 +29,11 @@ public class ApplyRefundResponse extends BaseResponse {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Amount {
         @JsonProperty("refund")
-        private int refund;
+        private Integer refund;
         @JsonProperty("payer_refund")
-        private int payerRefund;
+        private Integer payerRefund;
         @JsonProperty("discount_refund")
-        private int discountRefund;
+        private Integer discountRefund;
         @JsonProperty("currency")
         private String currency;
     }
@@ -48,8 +48,8 @@ public class ApplyRefundResponse extends BaseResponse {
         @JsonProperty("type")
         private String type;
         @JsonProperty("amount")
-        private int amount;
+        private Integer amount;
         @JsonProperty("refund_amount")
-        private int refundAmount;
+        private Integer refundAmount;
     }
 }

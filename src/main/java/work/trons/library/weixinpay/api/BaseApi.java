@@ -158,6 +158,12 @@ public abstract class BaseApi {
         return filename;
     }
 
+    /**
+     * 解析文件后缀名返回对应的ContentType
+     *
+     * @param filename
+     * @return
+     */
     private ContentType parseContentTypeFromFilename(String filename) {
         String lowerCase = filename.toLowerCase();
         if (lowerCase.endsWith(".png")) {

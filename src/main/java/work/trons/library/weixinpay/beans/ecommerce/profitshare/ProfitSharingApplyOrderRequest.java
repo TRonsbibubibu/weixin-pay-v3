@@ -37,7 +37,7 @@ public class ProfitSharingApplyOrderRequest {
         @JsonProperty("receiver_account")
         private String receiverAccount;
         @JsonProperty("amount")
-        private int amount;
+        private Integer amount;
         @JsonProperty("description")
         private String description;
     }

@@ -1,4 +1,4 @@
-package work.trons.library.weixinpay.beans.ecommerce.profitshare;
+package work.trons.library.weixinpay.beans.ecommerce.subsidy;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,24 +7,24 @@ import lombok.Data;
 
 /**
  * @author liujiawei
- * @date 2020/7/13
+ * @date 2020/7/29
  */
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfitSharingReturnOrderRequest {
+public class ReturnSubsidyRequest {
     @JsonProperty("sub_mchid")
     private String subMchid;
-    @JsonProperty("order_id")
-    private String orderId;
     @JsonProperty("out_order_no")
     private String outOrderNo;
-    @JsonProperty("out_return_no")
-    private String outReturnNo;
-    @JsonProperty("return_mchid")
-    private String returnMchid;
+    @JsonProperty("transaction_id")
+    private String transactionId;
+    @JsonProperty("refund_id")
+    private String refundId;
     @JsonProperty("amount")
     private Integer amount;
     @JsonProperty("description")
     private String description;
 }
+
+

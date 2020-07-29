@@ -23,7 +23,7 @@ public class QuerySubMchWithdrawResponse extends BaseResponse {
     @JsonProperty("out_request_no")
     private String outRequestNo;
     @JsonProperty("amount")
-    private int amount;
+    private Integer amount;
     @JsonProperty("create_time")
     private String createTime;
     @JsonProperty("update_time")

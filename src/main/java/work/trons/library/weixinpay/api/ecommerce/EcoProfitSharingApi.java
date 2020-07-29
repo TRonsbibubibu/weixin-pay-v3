@@ -38,6 +38,22 @@ public class EcoProfitSharingApi extends BaseApi {
     }
 
     /**
+     * 查询分账结果API
+     *
+     * @param request
+     * @return
+     */
+    public ProfitSharingQueryOrderResponse queryOrder(ProfitSharingQueryOrderRequest request) {
+        String method = "GET";
+        Map<String, String> querys = new HashMap<>(4);
+        querys.put("sub_mchid", request.getSubMchid());
+        querys.put("transaction_id", request.getTransactionId());
+        querys.put("out_order_no", request.getOutOrderNo());
+        String url = String.format("/v3/ecommerce/profitsharing/orders?%s", StringUtils.toQuery(querys));
+        return jsonRequest(method, url, null, ProfitSharingQueryOrderResponse.class);
+    }
+
+    /**
      * 请求分账回退API
      *
      * @param request

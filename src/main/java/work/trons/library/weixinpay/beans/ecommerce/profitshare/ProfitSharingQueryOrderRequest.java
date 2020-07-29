@@ -12,19 +12,11 @@ import lombok.Data;
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfitSharingReturnOrderRequest {
+public class ProfitSharingQueryOrderRequest {
     @JsonProperty("sub_mchid")
     private String subMchid;
-    @JsonProperty("order_id")
-    private String orderId;
+    @JsonProperty("transaction_id")
+    private String transactionId;
     @JsonProperty("out_order_no")
     private String outOrderNo;
-    @JsonProperty("out_return_no")
-    private String outReturnNo;
-    @JsonProperty("return_mchid")
-    private String returnMchid;
-    @JsonProperty("amount")
-    private Integer amount;
-    @JsonProperty("description")
-    private String description;
 }
