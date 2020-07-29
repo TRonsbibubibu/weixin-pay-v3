@@ -20,7 +20,7 @@ weixin-pay-v3
 <dependency>
   <groupId>work.trons.library</groupId>
   <artifactId>weixin-pay-v3</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
