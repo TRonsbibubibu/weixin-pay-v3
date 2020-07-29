@@ -38,9 +38,9 @@ public class ApplyRefundRequest {
     @Builder
     public static class Amount {
         @JsonProperty("refund")
-        private int refund;
+        private Integer refund;
         @JsonProperty("total")
-        private int total;
+        private Integer total;
         @JsonProperty("currency")
         private String currency;
     }

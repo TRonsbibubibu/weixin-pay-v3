@@ -45,6 +45,9 @@ public class RSAUtils {
 
     @SneakyThrows
     public static String encrypt(String message, PublicKey publicKey) {
+        if (message == null) {
+            return null;
+        }
         Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-1AndMGF1Padding");
         cipher.init(Cipher.ENCRYPT_MODE, publicKey);
 
@@ -55,6 +58,9 @@ public class RSAUtils {
 
     @SneakyThrows
     public static String decrypt(String ciphertext, PrivateKey privateKey) {
+        if (ciphertext == null) {
+            return null;
+        }
         Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-1AndMGF1Padding");
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
 

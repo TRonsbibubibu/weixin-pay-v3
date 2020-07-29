@@ -31,6 +31,7 @@ public class StringUtils {
         return querys
                 .entrySet()
                 .stream()
+                .filter(e -> e.getValue() != null)
                 .map(e -> e.getKey() + "=" + e.getValue())
                 .collect(Collectors.joining("&"));
     }

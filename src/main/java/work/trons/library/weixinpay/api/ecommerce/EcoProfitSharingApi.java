@@ -38,19 +38,7 @@ public class EcoProfitSharingApi extends BaseApi {
     }
 
     /**
-     * 请求分账回退API
-     *
-     * @param request
-     * @return
-     */
-    public ProfitSharingReturnOrderResponse returnOrder(ProfitSharingReturnOrderRequest request) {
-        String method = "POST";
-        String url = "/v3/ecommerce/profitsharing/returnorders";
-        return jsonRequest(method, url, request, ProfitSharingReturnOrderResponse.class);
-    }
-
-    /**
-     * 查询分账回退结果API
+     * 查询分账结果API
      *
      * @param request
      * @return
@@ -63,6 +51,18 @@ public class EcoProfitSharingApi extends BaseApi {
         querys.put("out_order_no", request.getOutOrderNo());
         String url = String.format("/v3/ecommerce/profitsharing/orders?%s", StringUtils.toQuery(querys));
         return jsonRequest(method, url, null, ProfitSharingQueryOrderResponse.class);
+    }
+
+    /**
+     * 请求分账回退API
+     *
+     * @param request
+     * @return
+     */
+    public ProfitSharingReturnOrderResponse returnOrder(ProfitSharingReturnOrderRequest request) {
+        String method = "POST";
+        String url = "/v3/ecommerce/profitsharing/returnorders";
+        return jsonRequest(method, url, request, ProfitSharingReturnOrderResponse.class);
     }
 
     /**
